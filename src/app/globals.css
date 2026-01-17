@@ -1,42 +1,240 @@
+@import 'bootstrap/dist/css/bootstrap.min.css';
+@import '@fortawesome/fontawesome-free/css/all.min.css';
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --primary-red: #740311;
+  --accent-gold: #edcd6c;
+  --deep-green: #195b13;
+  --light-cream: #f9f5e8;
+  --whatsapp-green: #25d366;
 }
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html{
+  scroll-behavior: smooth;
 }
-
-html,
 body {
-  max-width: 100vw;
+  font-family: 'Lato', sans-serif;
+  color: #333;
   overflow-x: hidden;
+  background-color: var(--light-cream);
+}
+.skeleton-loader {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
 }
+/* --- WhatsApp Floating Button Styling --- */
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 30px;
+            right: 30px;
+            background-color: var(--whatsapp-green);
+            color: #FFF;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            animation: pulse 2s infinite;
+        }
 
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-}
+        .whatsapp-float:hover {
+            background-color: var(--deep-green); /* Changes to your brand green on hover */
+            color: #fff;
+            transform: scale(1.1);
+        }
 
-a {
-  color: inherit;
-  text-decoration: none;
-}
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+        }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
-}
+        /* --- Typography & Utilities --- */
+        h1, h2, h3, h4, h5 {
+            font-family: var(--font-heading);
+            color: var(--primary-red);
+        }
+        
+        .text-gold { color: var(--accent-gold) !important; }
+        .text-red { color: var(--primary-red) !important; }
+        .text-green { color: var(--deep-green) !important; }
+        .bg-red { background-color: var(--primary-red) !important; }
+        .bg-gold { background-color: var(--accent-gold) !important; }
+        
+        .section-padding {
+            padding: 80px 0;
+        }
+
+        .btn-custom {
+            background-color: var(--primary-red);
+            color: var(--accent-gold);
+            border: 2px solid var(--primary-red);
+            padding: 10px 30px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.4s ease;
+        }
+
+        .btn-custom:hover {
+            background-color: transparent;
+            color: var(--primary-red);
+        }
+
+        /* --- Animations (Scroll Reveal) --- */
+        .reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 1s ease-out;
+        }
+        
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .reveal-left {
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: all 1s ease-out;
+        }
+        
+        .reveal-left.active {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        /* --- Navbar --- */
+        .navbar {
+            background-color: var(--primary-red);
+            padding: 1rem 0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .navbar-brand {
+            font-family: var(--font-heading);
+            color: var(--accent-gold) !important;
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+
+        .nav-link {
+            color: #fff !important;
+            font-weight: 400;
+            margin: 0 10px;
+            transition: color 0.3s;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            color: var(--accent-gold) !important;
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('/assets/og-banner.png') no-repeat center center/cover;
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+
+        .hero h1 {
+            color: var(--accent-gold);
+            font-size: 4rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        /* --- Cards --- */
+        .product-card {
+            border: none;
+            background: #fff;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+            height: 100%;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+        }
+
+        .card-img-top {
+            height: 250px;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .product-card:hover .card-img-top {
+            transform: scale(1.05);
+        }
+
+        .card-price {
+            color: var(--deep-green);
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        /* --- Contact --- */
+        .contact-icon {
+            font-size: 2rem;
+            color: var(--primary-red);
+            margin-bottom: 15px;
+        }
+
+        /* --- Footer --- */
+        footer {
+            background-color: #222;
+            color: #ccc;
+            padding: 50px 0 20px;
+        }
+        
+        footer h5 {
+            color: var(--accent-gold);
+            margin-bottom: 20px;
+        }
+
+        footer a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        footer a:hover {
+            color: var(--accent-gold);
+        }
+
+        .social-icons a {
+            font-size: 1.5rem;
+            margin-right: 15px;
+        }
+
+        /* Responsive Fixes */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .whatsapp-float {
+                width: 50px;
+                height: 50px;
+                bottom: 20px;
+                right: 20px;
+                font-size: 25px;
+            }
+        }
