@@ -62,6 +62,49 @@ export const bentoCakes = [
         "/assets/Cakes/Bento/5/IMG-20260112-WA0022.jpg",
         "/assets/Cakes/Bento/5/IMG-20260112-WA0023.jpg"
     ],
+  },
+  {
+    id: 6,
+    name: "Chocolate Overload",
+    price: "₹199",
+    weight: "Approx 200 gms",
+    servings: "2-3 pax",
+    flavors: ["Dark Chocolate", "Chocolate Truffle"],
+    images: [
+        "/assets/Cakes/Bento/6/IMG-20260112-WA0024.jpg",
+        "/assets/Cakes/Bento/6/IMG-20260112-WA0025.jpg",
+        "/assets/Cakes/Bento/6/IMG-20260112-WA0026.jpg",
+        "/assets/Cakes/Bento/6/IMG-20260112-WA0027.jpg",
+        "/assets/Cakes/Bento/6/IMG-20260112-WA0028.jpg"
+    ],
+  },
+  {
+    id: 7,
+    name: "Chocolate Overload",
+    price: "₹199",
+    weight: "Approx 200 gms",
+    servings: "2-3 pax",
+    flavors: ["Dark Chocolate", "Chocolate Truffle"],
+    images: [
+        "/assets/Cakes/Bento/7/IMG-20260112-WA0030.jpg",
+        "/assets/Cakes/Bento/7/IMG-20260112-WA0031.jpg",
+        "/assets/Cakes/Bento/7/IMG-20260112-WA0032.jpg",
+        "/assets/Cakes/Bento/7/IMG-20260112-WA0033.jpg"
+    ],
+  },
+  {
+    id: 8,
+    name: "Chocolate Overload",
+    price: "₹199",
+    weight: "Approx 200 gms",
+    servings: "2-3 pax",
+    flavors: ["Dark Chocolate", "Chocolate Truffle"],
+    images: [
+        "/assets/Cakes/Bento/8/IMG-20260112-WA0037.jpg",
+        "/assets/Cakes/Bento/8/IMG-20260112-WA0038.jpg",
+        "/assets/Cakes/Bento/8/IMG-20260112-WA0039.jpg",
+        "/assets/Cakes/Bento/8/IMG-20260112-WA0040.jpg"
+    ],
   }
 ];
 

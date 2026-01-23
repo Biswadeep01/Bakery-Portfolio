@@ -8,12 +8,21 @@ export default function Footer() {
           
           {/* Column 1: Brand & Socials */}
           <div className="col-md-4 mb-4">
-            <h5 className="text-white mb-3" style={{ fontFamily: 'var(--font-heading)' }}>Layer Bites</h5>
-            <p className="small">Crafting sweet memories since 2010. Visit us for the best cakes, pastries, and savory treats in town.</p>
+            <h5 className="text-white mb-3" style={{ fontFamily: 'var(--font-heading)' }}>Layer Bites | Burdwan</h5>
+            <p className="small">
+              Freshly baked cakes, pastries & cookies.
+              Custom orders for your special moments.
+            </p>
+            <p className="small">
+              <a href="https://wa.me/919474894533?text=Hello%20Layer%20Bites,%20I%20have%20an%20enquiry%20regarding%20your%20products."  
+                target="_blank" 
+                rel="noopener noreferrer">
+                <i className="fab fa-whatsapp"></i> 9474894533
+              </a>
+            </p>
             <div className="d-flex gap-3 mt-3">
-              <a href="#" className="text-secondary hover-gold transition"><i className="fab fa-facebook-f fa-lg"></i></a>
-              <a href="#" className="text-secondary hover-gold transition"><i className="fab fa-instagram fa-lg"></i></a>
-              <a href="#" className="text-secondary hover-gold transition"><i className="fab fa-twitter fa-lg"></i></a>
+              <a href="https://www.facebook.com/share/1CzpGvNQHf/?mibextid=wwXIfr" className="text-secondary hover-gold transition"><i className="fab fa-facebook-f fa-lg"></i></a>
+              <a href="https://www.instagram.com/lovebites167?igsh=MXJxMnp2ejNkODA2cA%3D%3D&utm_source=qr" className="text-secondary hover-gold transition"><i className="fab fa-instagram fa-lg"></i></a>
             </div>
           </div>
 
@@ -22,9 +31,10 @@ export default function Footer() {
             <h5 className="text-white mb-3" style={{ fontFamily: 'var(--font-heading)' }}>Quick Links</h5>
             <ul className="list-unstyled">
               <li className="mb-2"><Link href="/" className="text-secondary text-decoration-none hover-gold">Home</Link></li>
-              <li className="mb-2"><Link href="/#about" className="text-secondary text-decoration-none hover-gold">About Us</Link></li>
-              <li className="mb-2"><Link href="/#cakes" className="text-secondary text-decoration-none hover-gold">Menu</Link></li>
-              <li className="mb-2"><Link href="/#contact" className="text-secondary text-decoration-none hover-gold">Contact</Link></li>
+              <li className="mb-2"><Link href="/#about" className="text-secondary text-decoration-none hover-gold">Our Story</Link></li>
+              <li className="mb-2"><Link href="/bakery" className="text-secondary text-decoration-none hover-gold">Inventory</Link></li>
+              <li className="mb-2"><Link href="/#contact" className="text-secondary text-decoration-none hover-gold">Reach us</Link></li>
+              <li className="mb-2"><Link href="/terms" className="text-secondary text-decoration-none hover-gold">Terms & Policies</Link></li>
             </ul>
           </div>
 
@@ -35,7 +45,7 @@ export default function Footer() {
               <p className="small">
                 123 Baker Street, Golden Lane,<br/>
                 Bardhaman (Burdwan), West Bengal - 713101<br/>
-                (Near Curzon Gate) {/* Adding a landmark is great for Local SEO */}
+                (Near Curzon Gate)
               </p>
               <iframe 
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3770.792576082498!2d72.87765631490117!3d19.07609098708791!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c6306644edc1%3A0x5da4ed8f8d648c69!2sMumbai%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1625562772599!5m2!1sen!2sin" 

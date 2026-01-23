@@ -19,11 +19,17 @@ export default function About() {
 
           {/* Right Side: Text */}
           <div className="col-md-6 reveal ps-md-5">
-            <h2 className="display-5 fw-bold mb-4">Our Story</h2>
+            <h3 className="display-5 fw-bold mb-4">Baking Memories, One Layer at a Time</h3>
             <h4 className="text-gold mb-3" style={{ color: 'var(--accent-gold)' }}>Tradition meets Elegance</h4>
-            <p className="lead text-muted">Founded with a passion for pastry, Layer Bites has been serving the community with premium artisan breads and confectionery since 2010.</p>
-            <p>We believe in using only the finest ingredients—Belgian chocolate, organic flour, and farm-fresh fruits. Our recipes are a blend of classic European techniques and local flavors.</p>
-            
+            <p className="text-muted">
+              At LayerBites, we believe that every bite should be a celebration. Based in the heart of Burdwan, we are a renowned bakery dedicated to crafting the finest sweet experiences for our community and beyond.
+              Founded with a passion for pastry, Layer Bites has been serving the community with joyful experience and confectionery since 2010.</p>
+            <p>
+              We strictly use the finest ingredients to ensure that every pastry, cookie, and cake is fresh, flavorful, and unforgettable.
+              We are thrilled to offer our famous Thekua Box—crafted with love, tradition, and genuine festive flavors that take you back to your roots.
+            </p>
+            <p className="lead text-dark">
+              Celebrating a Milestone? From weddings and anniversaries to birthdays, we specialize in custom orders to make your special occasions truly sweet.</p>
             <div className="mt-4 row">
               <div className="col-6 mb-3">
                 <div className="d-flex align-items-center">
