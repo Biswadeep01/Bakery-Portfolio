@@ -4,13 +4,14 @@ import { useState } from "react";
 export default function Contact() {
   const [formData, setFormData] = useState({
     name: "",
-    email: "",
-    type: "1",
+    phone: "",
+    type: "1", // Default to Wedding Order
     message: ""
   });
   
   const [errors, setErrors] = useState({});
   const [isSuccess, setIsSuccess] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false); // Loading state
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -25,32 +26,63 @@ export default function Contact() {
         tempErrors.name = "Name is required";
         isValid = false;
     }
-    // Simple Email Regex
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!formData.email.match(emailRegex)) {
-        tempErrors.email = "Please enter a valid email";
+    const phoneRegex = /^[0-9]{10}$/;
+    if (!formData.phone.trim()) {
+        tempErrors.phone = "Phone number is required";
+        isValid = false;
+    } else if (!formData.phone.match(phoneRegex)) {
+        tempErrors.phone = "Please enter a valid 10-digit phone number";
         isValid = false;
     }
+
     if (!formData.message.trim()) {
         tempErrors.message = "Message cannot be empty";
         isValid = false;
     }
-
     setErrors(tempErrors);
     return isValid;
+  };
+
+  // Helper to make the message readable
+  const getInquiryLabel = (val) => {
+      switch(val) {
+          case "1": return "Wedding Order";
+          case "2": return "Corporate Event";
+          case "3": return "General Query";
+          default: return "General Query";
+      }
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (validate()) {
-        // Here you would normally send data to API
-        console.log("Submitting:", formData);
-        setIsSuccess(true);
-        // Reset form
-        setFormData({ name: "", email: "", type: "1", message: "" });
+        setIsSubmitting(true);
         
-        // Hide success message after 3 seconds
-        setTimeout(() => setIsSuccess(false), 3000);
+        const phoneNumber = "919474894533"; // Replace with your WhatsApp number
+        const inquiryType = getInquiryLabel(formData.type);
+
+        // Construct the message
+        const whatsappMessage = `
+*New Inquiry from Website!*
+---------------------------
+Name: ${formData.name}
+Phone: ${formData.phone}
+Type: ${inquiryType}
+Message:
+${formData.message}
+        `.trim();
+        setTimeout(() => {
+            window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(whatsappMessage)}`, '_blank');
+            
+            setIsSuccess(true);
+            setIsSubmitting(false);
+            
+            // Reset form
+            setFormData({ name: "", phone: "", type: "1", message: "" });
+            
+            // Hide success message after 5 seconds
+            setTimeout(() => setIsSuccess(false), 5000);
+        }, 800);
     }
   };
 
@@ -67,7 +99,7 @@ export default function Contact() {
             {isSuccess && (
                 <div className="alert alert-success d-flex align-items-center" role="alert">
                     <i className="fas fa-check-circle me-2"></i>
-                    <div>Message sent successfully! We will call you soon.</div>
+                    <div>Redirecting to WhatsApp... Message prepared!</div>
                 </div>
             )}
 
@@ -85,13 +117,13 @@ export default function Contact() {
                 </div>
                 <div className="col-md-6">
                   <input 
-                    type="email" name="email" 
-                    className={`form-control ${errors.email ? "is-invalid" : ""}`} 
-                    placeholder="Your Email" 
-                    value={formData.email}
+                    type="tel" name="phone" 
+                    className={`form-control ${errors.phone ? "is-invalid" : ""}`} 
+                    placeholder="Your phone" 
+                    value={formData.phone}
                     onChange={handleChange}
                   />
-                   <div className="invalid-feedback">{errors.email}</div>
+                   <div className="invalid-feedback">{errors.phone}</div>
                 </div>
                 <div className="col-12">
                   <select name="type" className="form-select" value={formData.type} onChange={handleChange}>
@@ -112,7 +144,13 @@ export default function Contact() {
                    <div className="invalid-feedback">{errors.message}</div>
                 </div>
                 <div className="col-12">
-                  <button type="submit" className="btn btn-custom w-100">Send Message</button>
+                  <button type="submit" className="btn btn-custom w-100" disabled={isSubmitting}>
+                    {isSubmitting ? (
+                        <span><i className="fas fa-spinner fa-spin me-2"></i> Opening WhatsApp...</span>
+                    ) : (
+                        <span>Send Message <i className="fab fa-whatsapp ms-1"></i></span>
+                    )}
+                  </button>
                 </div>
               </div>
             </form>
@@ -125,19 +163,19 @@ export default function Contact() {
             <p className="mb-4" style={{ color: 'var(--accent-gold)' }}>We'd love to hear from you.</p>
             <div className="d-flex mb-4">
               <i className="fas fa-map-marker-alt fs-4 me-3" style={{ color: 'var(--accent-gold)' }}></i>
-              <p>123 Baker Street, Golden Lane,<br/>Burdwan, West Bengal 713101</p>
+              <p>Badamtala, Curzon Gate<br/>Burdwan, West Bengal 713101</p>
             </div>
             <div className="d-flex mb-4">
               <i className="fas fa-phone fs-4 me-3" style={{ color: 'var(--accent-gold)' }}></i>
-              <p>+91 98765 43210</p>
+              <p>+91 94748 94533</p>
             </div>
             <div className="d-flex mb-4">
               <i className="fab fa-whatsapp fs-4 me-3" style={{ color: 'var(--accent-gold)' }}></i>
-              <p>+91 98765 43210 (WhatsApp)</p>
+              <p>+91 94748 94533 (WhatsApp)</p>
             </div>
             <div className="d-flex">
               <i className="fas fa-envelope fs-4 me-3" style={{ color: 'var(--accent-gold)' }}></i>
-              <p>hello@serasoven.in</p>
+              <p>enquiry@layerbites.com</p>
             </div>
           </div>
 

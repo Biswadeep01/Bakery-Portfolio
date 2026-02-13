@@ -12,6 +12,7 @@ import Footer from '@/components/Footer';
 import ProductDetailsModal from '@/components/ProductDetailsModal';
 import Testimonials from '@/components/Testimonials';
 import OrderModal from '@/components/OrderModal'; 
+import PromoPopup from '@/components/PromoPopup';
 
 // Data
 import { signatureCakes, merchandise } from '@/data/homeData'; // Import Data
@@ -50,6 +51,7 @@ export default function Home() {
 
   return (
     <main>
+      <PromoPopup />
       <Navbar />
       
       {/* HERO SECTION */}

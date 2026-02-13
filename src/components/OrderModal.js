@@ -17,6 +17,7 @@ export default function OrderModal({ cake, onClose }) {
     name: "",
     phone: "",
     address: "",
+    pin: "",
     quantity: "1",
     date: "",
     instructions: ""
@@ -51,6 +52,13 @@ export default function OrderModal({ cake, onClose }) {
     // 3. Address Validation
     if (formData.address.trim().length < 10) {
       newErrors.address = "Address is too short (min 10 chars)";
+      isValid = false;
+    }
+
+    // 4. PIN Validation (6 digits)
+    const pinRegex = /^[0-9]{6}$/;
+    if (!formData.pin.match(pinRegex)) {
+      newErrors.pin = "Enter a valid 6-digit PIN code";
       isValid = false;
     }
 
@@ -105,6 +113,7 @@ ${flavorLine}
 Name: ${formData.name}
 Phone: ${formData.phone}
 Address: ${formData.address}
+PIN: ${formData.pin}
 Date Needed: ${formData.date}
 Quantity: ${formData.quantity}
 Note: ${formData.instructions}
@@ -189,9 +198,20 @@ Note: ${formData.instructions}
                         <textarea 
                             name="address" 
                             className={`form-control form-control-sm ${errors.address ? "is-invalid" : ""}`} 
-                            rows="2" onChange={handleChange} placeholder="Street, Landmark, Pincode"
+                            rows="2" onChange={handleChange} placeholder="Street, Landmark"
                         ></textarea>
                          <div className="invalid-feedback">{errors.address}</div>
+                    </div>
+
+                    <div className="mb-2">
+                        <label className="form-label small fw-bold">PIN Code <span className="text-danger">*</span></label>
+                        <input 
+                            type="text" name="pin" 
+                            className={`form-control form-control-sm ${errors.pin ? "is-invalid" : ""}`} 
+                            onChange={handleChange} 
+                            placeholder="Enter 6-digit PIN"
+                        />
+                        <div className="invalid-feedback">{errors.pin}</div>
                     </div>
 
                     <div className="row mb-2">
