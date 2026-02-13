@@ -111,12 +111,13 @@ export const bentoCakes = [
 export const premiumBentoCakes = [
   {
     id: 1,
-    name: "Floral 3D Art",
-    price: "₹950",
-    weight: "Approx 500 gms",
-    servings: "4-5 pax",
-    
-    flavors: ["Hazelnut", "Rasmalai"],
+    name: "Gold Leaf Vintage",
+    price: "₹299",
+    flavors: ["Dark Truffle", "Blueberry"],
+    images: [
+        "/cakes/premium-gold.jpg",
+        "/cakes/premium-gold-top.jpg"
+    ],
   },
   {
     id: 102,
