@@ -53,7 +53,7 @@ export default function LoadingSpinner() {
 
       </svg>
 
-      <h5 className="mt-4 text-red fw-bold fade-text" style={{fontFamily: 'var(--font-heading)', letterSpacing: '2px'}}>SERA'S OVEN</h5>
+      <h5 className="mt-4 text-red fw-bold fade-text" style={{fontFamily: 'var(--font-heading)', letterSpacing: '2px'}}>LAYER BITES</h5>
       <p className="small text-muted" style={{fontStyle: 'italic'}}>Something delicious is rising...</p>
       
       <style jsx>{`

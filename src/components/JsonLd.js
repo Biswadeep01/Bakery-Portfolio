@@ -2,12 +2,12 @@ export default function JsonLd() {
   const schema = {
     "@context": "https://schema.org",
     "@type": "Bakery",
-    "name": "Sera's Oven",
+    "name": "Layer Bites",
     "image": [
-      "https://www.serasoven.in/android-chrome-512x512.png" 
+      "https://layerbites.com/android-chrome-512x512.png" 
     ],
-    "@id": "https://www.serasoven.in",
-    "url": "https://www.serasoven.in",
+    "@id": "https://layerbites.com",
+    "url": "https://layerbites.com",
     "telephone": "+919876543210",
     "priceRange": "₹₹",
     "address": {
@@ -38,8 +38,8 @@ export default function JsonLd() {
       "closes": "21:00"
     },
     "sameAs": [
-      "https://www.facebook.com/yourpage",
-      "https://www.instagram.com/yourpage"
+      "https://www.facebook.com/share/1CzpGvNQHf/?mibextid=wwXIfr",
+      "https://www.instagram.com/lovebites167?igsh=MXJxMnp2ejNkODA2cA%3D%3D&utm_source=qr"
     ],
     "servesCuisine": "Bakery, Desserts, Custom Cakes"
   };

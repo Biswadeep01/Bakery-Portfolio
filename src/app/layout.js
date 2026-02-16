@@ -19,7 +19,7 @@ const lato = Lato({
 });
 
 export const metadata = {
-  metadataBase: new URL('https://www.serasoven.in'), // Replace with your actual domain
+  metadataBase: new URL('https://layerbites.com'), // Replace with your actual domain
   title: {
     default: "Layer Bites | Best Bakery in Burdwan",
     template: "%s | Layer Bites Bardhaman"
@@ -40,7 +40,7 @@ export const metadata = {
   openGraph: {
     title: "Layer Bites | Artisan Bakery in Burdwan",
     description: "Premium cakes and pastries in Bardhaman. Order on WhatsApp!",
-    url: 'https://www.serasoven.in',
+    url: 'https://layerbites.com',
     siteName: "Layer Bites",
     images: [
       {
