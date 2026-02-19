@@ -2,7 +2,7 @@
 import { useState, useEffect } from 'react';
 
 // Components
-import Navbar from '@/components/Navbar';
+import Navbar from '@/components/Navbar'; 
 import WhatsAppBtn from '@/components/WhatsAppBtn';
 import ProductCard from '@/components/ProductCard';
 import About from '@/components/About';
@@ -67,20 +67,7 @@ export default function Home() {
 
       <section id="achievements" className="py-5 text-white reveal" style={{ backgroundColor: 'var(--primary-red)' }}>
         <div className="container">
-          <div className="text-center mb-5 reveal">
-            <h2 className="display-5 fw-bold mb-4" style={{color: "var(--accent-gold)"}}>Milestones</h2>
-            <div style={{height: '3px', width: '60px', background: 'var(--light-cream)', margin: '10px auto'}}></div>
-          </div>
-          <div className="row g-4">
-            <Achievements
-            title="Core Values" image='/assets/Achievements/values.jpg' />
-            <Achievements
-            title="Startup Award" image='/assets/Achievements/a1.jpg' />
-            <Achievements
-            title="Feature" image='/assets/Achievements/a2.jpg' />
-            <Achievements
-            title="Cover Story" image='/assets/Achievements/a3.jpg' />
-          </div>
+          <Achievements />
         </div>
       </section>
 

@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import { siteConfig } from "@/config/site";
 
 export default function OrderModal({ cake, onClose }) {
   const hasFlavors = cake.flavors && cake.flavors.length > 1;
@@ -90,7 +91,7 @@ export default function OrderModal({ cake, onClose }) {
 
     setIsSubmitting(true);
 
-    const phoneNumber = "919474894533"; // Replace with your WhatsApp number in international format
+    const phoneNumber = siteConfig.contact.phone; // Use the configured phone number
     const imagePath = Array.isArray(cake.images) ? cake.images[0] : cake.images;
     const currentDomain = typeof window !== 'undefined' ? window.location.origin : '';
     const fullImageLink = imagePath.startsWith('http') 

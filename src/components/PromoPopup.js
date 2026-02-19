@@ -1,5 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
+import { siteConfig } from "@/config/site";
 import { currentPromo } from "@/data/promoData";
 
 export default function PromoPopup() {
@@ -37,8 +38,7 @@ export default function PromoPopup() {
   };
 
   const handleKnowMore = () => {
-    const phone = "919474894533";
-    const url = `https://wa.me/${phone}?text=${encodeURIComponent(currentPromo.whatsappMessage)}`;
+    const url = `https://wa.me/${siteConfig.contact.phone}?text=${encodeURIComponent(currentPromo.whatsappMessage)}`;
     window.open(url, '_blank');
     handleClose();
   };

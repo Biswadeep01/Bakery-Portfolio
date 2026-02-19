@@ -49,7 +49,7 @@ export default function TermsPage() {
                     
                     <div className="mb-4">
                         <h5 className="fw-bold small text-uppercase text-muted">The Ingredients</h5>
-                        <p>We use only premium ingredients: Belgian chocolate (Callebaut), high-protein flour, and farm-fresh dairy. We strictly do not use preservatives or premixes. All fruit compotes are made in-house.</p>
+                        <p>We use only premium ingredients: Premium grade chocolate, high-protein flour, and farm-fresh dairy. We strictly do not use preservatives or premixes. All fruit compotes are made in-house.</p>
                     </div>
 
                     <div className="mb-4">

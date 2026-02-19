@@ -1,27 +1,29 @@
+import { siteConfig } from "@/config/site";
+
 export default function JsonLd() {
   const schema = {
     "@context": "https://schema.org",
     "@type": "Bakery",
-    "name": "Layer Bites",
+    "name": siteConfig.name,
     "image": [
-      "https://layerbites.com/android-chrome-512x512.png" 
+      `${siteConfig.link}/android-chrome-512x512.png` 
     ],
-    "@id": "https://layerbites.com",
-    "url": "https://layerbites.com",
-    "telephone": "+919876543210",
+    "@id": siteConfig.link,
+    "url": siteConfig.link,
+    "telephone": siteConfig.contact.phone,
     "priceRange": "₹₹",
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "123 Baker Street, Golden Lane", // Your specific street
+      "streetAddress": siteConfig.contact.address, // Your specific street
       "addressLocality": "Burdwan",
       "addressRegion": "West Bengal",
       "postalCode": "713101", // Standard Burdwan Pin Code
       "addressCountry": "IN"
     },
     "geo": {
-      "@type": "GeoCoordinates",
-      "latitude": 23.2324,  // Approximate Lat for Burdwan
-      "longitude": 87.8615  // Approximate Long for Burdwan
+      "@type": "GeoCoordinates", 
+      "latitude": 23.24109298364691,
+      "longitude": 87.87019848805195
     },
     "openingHoursSpecification": {
       "@type": "OpeningHoursSpecification",
@@ -38,8 +40,8 @@ export default function JsonLd() {
       "closes": "21:00"
     },
     "sameAs": [
-      "https://www.facebook.com/share/1CzpGvNQHf/?mibextid=wwXIfr",
-      "https://www.instagram.com/lovebites167?igsh=MXJxMnp2ejNkODA2cA%3D%3D&utm_source=qr"
+      `${siteConfig.social.facebook}`,
+      `${siteConfig.social.instagram}`
     ],
     "servesCuisine": "Bakery, Desserts, Custom Cakes"
   };

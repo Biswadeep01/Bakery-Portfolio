@@ -35,7 +35,12 @@ export default function ImageLoader({ src, alt, className }) {
             transition: "opacity 0.5s ease-in-out" 
         }}
         onLoad={() => setImageLoaded(true)}
-        onError={() => setImageLoaded(true)} // Stop loading animation even if image fails
+        onError={(e) => {
+          setImageLoaded(true); // Ensure loading stops even if image fails
+          e.target.onerror = null; 
+          e.target.src = "/assets/placeholder.png"; 
+        }}
+        
       />
     </div>
   );

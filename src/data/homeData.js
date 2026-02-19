@@ -42,7 +42,7 @@ export const merchandise = [
         weight: "500g",       
         servings: "12 pcs",
         desc: "Box of 12 premium butter cookies.",
-        image: "https://images.unsplash.com/photo-1621236378699-8597faf6a176?q=80&w=1974",
+        image: "/assets/placeholder.png",
         badge: null,
         flavors: []
     },
@@ -51,7 +51,7 @@ export const merchandise = [
         title: "Baker's Apron",
         price: "₹800",
         desc: "High-quality cotton apron with gold embroidery.",
-        image: "https://images.unsplash.com/photo-1583336137694-ade3658253dd?q=80&w=2070",
+        image: "/assets/placeholder.png",
         badge: "MERCH",
         flavors: []
     },
@@ -60,7 +60,7 @@ export const merchandise = [
         title: "Sourdough Kit",
         price: "₹1100",
         desc: "Starter culture, lame, and banneton basket.",
-        image: "https://images.unsplash.com/photo-1509440159596-0249088772ff?q=80&w=2072",
+        image: "/assets/placeholder.png",
         badge: "NEW",
         flavors: []
     },
@@ -69,7 +69,7 @@ export const merchandise = [
         title: "Gold Rim Mug",
         price: "₹350",
         desc: "Ceramic mug for your morning coffee.",
-        image: "https://images.unsplash.com/photo-1514228742587-6b1558fcca3d?q=80&w=2070",
+        image: "/assets/placeholder.png",
         badge: null,
         flavors: []
     }

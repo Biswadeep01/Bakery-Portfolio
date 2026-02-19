@@ -1,7 +1,8 @@
+import { siteConfig } from "@/config/site";
 export default function manifest() {
   return {
-    name: "Layer Bites | Artisan Bakery",
-    short_name: "Layer Bites",
+    name: `${siteConfig.name} | Artisan Bakery`,
+    short_name: siteConfig.name,
     description: "Experience the taste of luxury in every bite. Order custom cakes and pastries.",
     start_url: '/',
     display: 'standalone',

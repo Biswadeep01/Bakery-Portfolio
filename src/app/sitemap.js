@@ -1,5 +1,7 @@
+import { siteConfig } from '@/config/site';
+
 export default function sitemap() {
-  const baseUrl = 'https://www.serasoven.in'; // Replace with real domain
+  const baseUrl = siteConfig.link; // Use the configured base URL
 
   return [
     {
@@ -9,7 +11,7 @@ export default function sitemap() {
       priority: 1,
     },
     {
-      url: `${baseUrl}/cakes`,
+      url: `${baseUrl}/bakery`,
       lastModified: new Date(),
       changeFrequency: 'weekly',
       priority: 0.8,

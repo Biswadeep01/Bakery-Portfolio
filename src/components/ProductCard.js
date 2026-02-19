@@ -14,7 +14,7 @@ export default function ProductCard({ title, price, desc, image, badge, weight, 
 
         {/* CLICKING IMAGE OPENS DETAILS */}
         <div style={{ height: '260px', cursor: 'pointer' }} className="overflow-hidden" onClick={onViewDetails}>
-            <ImageLoader src={image} alt={title} className="w-100 h-100" />
+            <ImageLoader src={image} alt={title} className="w-100 h-100"/>
             
             {/* Overlay Hint */}
             <div className="overlay d-flex justify-content-center align-items-center">

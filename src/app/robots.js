@@ -1,5 +1,7 @@
+import { siteConfig } from "@/config/site";
+
 export default function robots() {
-  const baseUrl = 'https://www.layerbites.in'; 
+  const baseUrl = siteConfig.url;
 
   return {
     rules: {

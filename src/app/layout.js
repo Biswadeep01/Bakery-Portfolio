@@ -2,6 +2,7 @@ import "./globals.css";
 // We import Google Fonts via the Next.js optimization tool
 import { Playfair_Display, Lato } from 'next/font/google';
 import JsonLd from "@/components/JsonLd";
+import { siteConfig } from "@/config/site"; // Import site configuration for dynamic data
 import BootstrapClient from "@/components/BootstrapClient"; // We will create this next
 import { Suspense } from "react";
 import Loading from "./loading";
@@ -19,10 +20,10 @@ const lato = Lato({
 });
 
 export const metadata = {
-  metadataBase: new URL('https://layerbites.com'), // Replace with your actual domain
+  metadataBase: new URL(siteConfig.url || "http://localhost:3000"), // Use dynamic siteConfig.url
   title: {
-    default: "Layer Bites | Best Bakery in Burdwan",
-    template: "%s | Layer Bites Bardhaman"
+    default: `${siteConfig.name} | Best Bakery in Burdwan`,
+    template: "%s | %s" // Use both site name and template
   },
   description: "Order premium custom cakes, bento cakes, and gift hampers in Burdwan (Bardhaman), West Bengal. Freshly baked, organic ingredients, and home delivery available.",
   keywords: [
@@ -30,18 +31,18 @@ export const metadata = {
     "Cake delivery Burdwan", 
     "Best birthday cakes Bardhaman", 
     "Custom cakes West Bengal", 
-    "Layer Bites",
+    `${siteConfig.name} bakery`, // Dynamic brand keyword
     "Bento cakes Burdwan"
   ],
-  authors: [{ name: "Layer Bites" }],
+  authors: [{ name: siteConfig.name }],
   alternates: {
     canonical: '/',
   },
   openGraph: {
-    title: "Layer Bites | Artisan Bakery in Burdwan",
+    title: `${siteConfig.name} | Artisan Bakery in Burdwan`,
     description: "Premium cakes and pastries in Bardhaman. Order on WhatsApp!",
-    url: 'https://layerbites.com',
-    siteName: "Layer Bites",
+    url: siteConfig.url,
+    siteName: siteConfig.name,
     images: [
       {
         url: '/og-image.jpg', // You should add a nice banner image in public folder

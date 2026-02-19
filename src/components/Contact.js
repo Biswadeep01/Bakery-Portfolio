@@ -1,17 +1,18 @@
 "use client";
 import { useState } from "react";
+import { siteConfig } from "@/config/site";
 
 export default function Contact() {
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
-    type: "1", // Default to Wedding Order
+    type: "1", 
     message: ""
   });
   
   const [errors, setErrors] = useState({});
   const [isSuccess, setIsSuccess] = useState(false);
-  const [isSubmitting, setIsSubmitting] = useState(false); // Loading state
+  const [isSubmitting, setIsSubmitting] = useState(false); 
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -46,9 +47,10 @@ export default function Contact() {
   // Helper to make the message readable
   const getInquiryLabel = (val) => {
       switch(val) {
-          case "1": return "Wedding Order";
-          case "2": return "Corporate Event";
-          case "3": return "General Query";
+          case "1": return "Birthday Order";
+          case "2": return "Anniversary Order";
+          case "3": return "Corporate Event";
+          case "4": return "General Query";
           default: return "General Query";
       }
   };
@@ -58,7 +60,7 @@ export default function Contact() {
     if (validate()) {
         setIsSubmitting(true);
         
-        const phoneNumber = "919474894533"; // Replace with your WhatsApp number
+        const phoneNumber = siteConfig.contact.phone; // Use the phone number from siteConfig
         const inquiryType = getInquiryLabel(formData.type);
 
         // Construct the message
@@ -127,9 +129,10 @@ ${formData.message}
                 </div>
                 <div className="col-12">
                   <select name="type" className="form-select" value={formData.type} onChange={handleChange}>
-                    <option value="1">Wedding Order</option>
-                    <option value="2">Corporate Event</option>
-                    <option value="3">General Query</option>
+                    <option value="1">Birthday Order</option>
+                    <option value="2">Anniversary Order</option>
+                    <option value="3">Corporate Event</option>
+                    <option value="4">General Query</option>
                   </select>
                 </div>
                 <div className="col-12">
@@ -163,19 +166,19 @@ ${formData.message}
             <p className="mb-4" style={{ color: 'var(--accent-gold)' }}>We'd love to hear from you.</p>
             <div className="d-flex mb-4">
               <i className="fas fa-map-marker-alt fs-4 me-3" style={{ color: 'var(--accent-gold)' }}></i>
-              <p>Badamtala, Curzon Gate<br/>Burdwan, West Bengal 713101</p>
+              <p>{siteConfig.contact.address}<br/>Burdwan, West Bengal 713101</p>
             </div>
             <div className="d-flex mb-4">
               <i className="fas fa-phone fs-4 me-3" style={{ color: 'var(--accent-gold)' }}></i>
-              <p>+91 94748 94533</p>
+              <p>{siteConfig.contact.phoneDisplay}</p>
             </div>
             <div className="d-flex mb-4">
               <i className="fab fa-whatsapp fs-4 me-3" style={{ color: 'var(--accent-gold)' }}></i>
-              <p>+91 94748 94533 (WhatsApp)</p>
+              <p>{siteConfig.contact.phoneDisplay} (WhatsApp)</p>
             </div>
             <div className="d-flex">
               <i className="fas fa-envelope fs-4 me-3" style={{ color: 'var(--accent-gold)' }}></i>
-              <p>enquiry@layerbites.com</p>
+              <p>{siteConfig.contact.email}</p>
             </div>
           </div>
 
