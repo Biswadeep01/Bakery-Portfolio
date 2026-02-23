@@ -13,11 +13,15 @@ const CakesClient = dynamic(() => import("@/components/cakesClient"), {
 import { 
   cakeCategories, 
   bentoCakes, 
+  premiumBentoCakes,
   halfPoundCakes, 
   normalCakes, 
   premiumCakes,
   kidsCakes,
-  blackForestCakes 
+  blackForestCakes,
+  whiteForestCakes,
+  under499Cakes,
+  under599Cakes 
 } from "@/data/cakeData";
 import { fetchCakeImages } from "@/lib/imageUtils";
 
@@ -29,7 +33,11 @@ export default function CakesPage() {
     normal: [],
     premium: [],
     kids: [],
-    blackForest: []
+    blackForest: [],
+    whiteForest: [],
+    premiumBento: [],
+    under499: [],
+    under599: []
   });
   
   // Optional but recommended: A loading state so the UI doesn't look broken while fetching
@@ -40,23 +48,31 @@ export default function CakesPage() {
     setIsLoading(true);
     try {
       // Promise.all fetches all 4 categories at the exact same time for speed
-      const [bento, halfPound, normal, premium, kids, blackForest] = await Promise.all([
+      const [bento, premiumBento, halfPound, normal, premium, kids, blackForest, whiteForest, under499, under599] = await Promise.all([
         fetchCakeImages(bentoCakes),
+        fetchCakeImages(premiumBentoCakes),
         fetchCakeImages(halfPoundCakes),
         fetchCakeImages(normalCakes),
         fetchCakeImages(premiumCakes),
         fetchCakeImages(kidsCakes),
-        fetchCakeImages(blackForestCakes)
+        fetchCakeImages(blackForestCakes),
+        fetchCakeImages(whiteForestCakes),
+        fetchCakeImages(under499Cakes),
+        fetchCakeImages(under599Cakes)
       ]);
       
       // Store them in the single object state
       setAllCakesData({
         bento: bento,
+        premiumBento: premiumBento,
         halfPound: halfPound,
         normal: normal,
         premium: premium,
         kids: kids,
-        blackForest: blackForest
+        blackForest: blackForest,
+        whiteForest: whiteForest,
+        under499: under499,
+        under599: under599
       });
     } catch (error) {
       console.error("Error fetching cake images:", error);
