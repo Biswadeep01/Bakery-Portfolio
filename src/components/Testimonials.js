@@ -217,9 +217,27 @@ export default function Testimonials() {
 
         /* Responsive Adjustments */
         @media (max-width: 768px) {
-            .custom-control { display: none; /* Hide arrows on mobile to encourage swiping */ }
-            .testimonial-card { height: 380px; }
-            .text-clamp { -webkit-line-clamp: 4; }
+            .testimonial-card { 
+                height: 420px; /* Gives slightly more room for text on narrow screens */
+                padding: 1.5rem !important;
+            }
+            .text-clamp { 
+                -webkit-line-clamp: 5; 
+            }
+            
+            /* Bring back and scale down the arrows for mobile */
+            .custom-control { 
+                width: 40px; 
+                opacity: 0.9;
+            }
+            .control-icon {
+                width: 35px;
+                height: 35px;
+                font-size: 0.9rem;
+            }
+            /* Push arrows to the absolute edges */
+            .carousel-control-prev { left: -10px; }
+            .carousel-control-next { right: -10px; }
         }
       `}</style>
     </section>

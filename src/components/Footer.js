@@ -34,7 +34,7 @@ export default function Footer() {
               <li className="mb-2"><Link href="/" className="text-secondary text-decoration-none hover-gold">Home</Link></li>
               <li className="mb-2"><Link href="/#about" className="text-secondary text-decoration-none hover-gold">Our Story</Link></li>
               <li className="mb-2"><Link href="/bakery" className="text-secondary text-decoration-none hover-gold">Inventory</Link></li>
-              <li className="mb-2"><Link href="/#contact" className="text-secondary text-decoration-none hover-gold">Reach us</Link></li>
+              <li className="mb-2"><Link href="/#contact" className="text-secondary text-decoration-none hover-gold">Enquiry</Link></li>
               <li className="mb-2"><Link href="/terms" className="text-secondary text-decoration-none hover-gold">Terms & Policies</Link></li>
             </ul>
           </div>

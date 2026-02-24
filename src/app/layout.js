@@ -22,24 +22,24 @@ const lato = Lato({
 export const metadata = {
   metadataBase: new URL(siteConfig.url || "http://localhost:3000"), // Use dynamic siteConfig.url
   title: {
-    default: `${siteConfig.name} | Best Bakery in Burdwan`,
+    default: `${siteConfig.name} | Best Bakery in ${siteConfig.contact.locality}`,
     template: "%s | %s" // Use both site name and template
   },
-  description: "Order premium custom cakes, bento cakes, and gift hampers in Burdwan (Bardhaman), West Bengal. Freshly baked, organic ingredients, and home delivery available.",
+  description: `Order premium custom cakes, bento cakes, and gift hampers in ${siteConfig.contact.locality} (Bardhaman), ${siteConfig.contact.state}. Freshly baked, organic ingredients, and home delivery available.`,
   keywords: [
-    "Bakery in Burdwan", 
-    "Cake delivery Burdwan", 
-    "Best birthday cakes Bardhaman", 
-    "Custom cakes West Bengal", 
-    `${siteConfig.name} bakery`, // Dynamic brand keyword
-    "Bento cakes Burdwan"
+    `Bakery in ${siteConfig.contact.locality}`, 
+    `Cake delivery ${siteConfig.contact.locality}`, 
+    `Best birthday cakes ${siteConfig.contact.locality}`, 
+    `Custom cakes ${siteConfig.name}`, 
+    `${siteConfig.name} bakery`,
+    `Bento cakes ${siteConfig.contact.locality}`
   ],
   authors: [{ name: siteConfig.name }],
   alternates: {
     canonical: '/',
   },
   openGraph: {
-    title: `${siteConfig.name} | Artisan Bakery in Burdwan`,
+    title: `${siteConfig.name} | Artisan Bakery in ${siteConfig.contact.locality}`,
     description: "Premium cakes and pastries in Bardhaman. Order on WhatsApp!",
     url: siteConfig.url,
     siteName: siteConfig.name,

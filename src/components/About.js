@@ -24,7 +24,8 @@ export default function About() {
             <h3 className="display-5 fw-bold mb-4">Baking Memories, One Layer at a Time</h3>
             <h4 className="text-gold mb-3" style={{ color: 'var(--accent-gold)' }}>Tradition meets Elegance</h4>
             <p className="text-muted">
-              At {siteConfig.name}, we believe that every bite should be a celebration. Based in the heart of Burdwan, we are a renowned bakery dedicated to crafting the finest sweet experiences for our community and beyond.
+              At {siteConfig.name}, we believe that every bite should be a celebration. Based in the heart of Burdwan, 
+              we are a renowned bakery dedicated to crafting the finest sweet experiences for our community and beyond.
               Founded with a passion for pastry, {siteConfig.name} has been serving the community with joyful experience and confectionery since 2010.</p>
             <p>
               We strictly use the finest ingredients to ensure that every pastry, cookie, and cake is fresh, flavorful, and unforgettable.

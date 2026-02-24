@@ -166,7 +166,7 @@ ${formData.message}
             <p className="mb-4" style={{ color: 'var(--accent-gold)' }}>We'd love to hear from you.</p>
             <div className="d-flex mb-4">
               <i className="fas fa-map-marker-alt fs-4 me-3" style={{ color: 'var(--accent-gold)' }}></i>
-              <p>{siteConfig.contact.address}<br/>Burdwan, West Bengal 713101</p>
+              <p>{siteConfig.contact.address}<br/>{siteConfig.contact.locality}, {siteConfig.contact.state} {siteConfig.contact.pincode}</p>
             </div>
             <div className="d-flex mb-4">
               <i className="fas fa-phone fs-4 me-3" style={{ color: 'var(--accent-gold)' }}></i>

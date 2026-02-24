@@ -103,11 +103,21 @@ export default function CakesPage() {
         </div>
       </section>
 
-      {/* Loading Indicator */}
+      {/* Premium Loading Indicator */}
       {isLoading && (
-        <div className="container text-center py-5">
-            <i className="fas fa-circle-notch fa-spin fs-2 text-gold mb-3"></i>
-            <p className="text-muted">Loading fresh cakes...</p>
+        <div className="container text-center py-5 d-flex flex-column justify-content-center align-items-center" style={{ minHeight: '50vh' }}>
+          <div className="loader-container position-relative d-flex justify-content-center align-items-center mb-4">
+            <div className="spinner-ring position-absolute"></div>
+            <i className="fas fa-birthday-cake text-gold pulsing-cake z-index-1"></i>
+          </div>
+
+          {/* Elegant Loading Text */}
+          <h3 className="fw-bold text-red loading-text mb-1" style={{fontFamily: 'var(--font-heading)'}}>
+            Warming the ovens...
+          </h3>
+          <p className="text-muted small text-uppercase mb-0" style={{ letterSpacing: '2px' }}>
+            Preparing fresh cakes
+          </p>
         </div>
       )}
 
@@ -118,12 +128,56 @@ export default function CakesPage() {
           allCakes={allCakesData} 
         />
       )}
-
       <Footer />
       <WhatsAppBtn />
-
-      {/* Add this right before </main> */}
       <style jsx>{`
+        .text-red { color: #740311; }
+        .text-gold { color: #edcd6c; }
+
+        /* The Container */
+        .loader-container {
+            width: 100px;
+            height: 100px;
+        }
+
+        /* The Spinning Ring */
+        .spinner-ring {
+            width: 100%;
+            height: 100%;
+            border: 3px solid rgba(237, 205, 108, 0.2);
+            border-top: 3px solid #740311;
+            border-bottom: 3px solid #edcd6c;
+            border-radius: 50%;
+            animation: spin 1.5s linear infinite;
+        }
+
+        /* The Pulsing Icon */
+        .pulsing-cake {
+            font-size: 2rem;
+            animation: pulse 1.5s ease-in-out infinite;
+            filter: drop-shadow(0 5px 10px rgba(237, 205, 108, 0.3));
+        }
+
+        /* The Fading Text */
+        .loading-text {
+            animation: textFade 1.5s ease-in-out infinite;
+        }
+
+        /* Keyframes */
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        @keyframes pulse {
+            0% { transform: scale(0.9); opacity: 0.7; }
+            50% { transform: scale(1.1); opacity: 1; }
+            100% { transform: scale(0.9); opacity: 0.7; }
+        }
+        @keyframes textFade {
+            0% { opacity: 0.5; }
+            50% { opacity: 1; }
+            100% { opacity: 0.5; }
+        }
         .header-animate {
             animation: fadeDown 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
         }

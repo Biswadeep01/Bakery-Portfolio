@@ -9,6 +9,12 @@ export default function CakesClient({ categories, allCakes }) {
   const [activeCategory, setActiveCategory] = useState(null);
   const [viewProduct, setViewProduct] = useState(null);
   const [orderProduct, setOrderProduct] = useState(null);
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  }, [activeCategory]);
 
   const formatForOrder = (item) => ({
       name: item.name,
@@ -24,10 +30,6 @@ export default function CakesClient({ categories, allCakes }) {
     <>
       <section className="section-padding pb-5">
         <div className="container">
-            
-            {/* By wrapping the views in a div with a dynamic 'key', 
-              React treats it as a new element, which naturally re-triggers our CSS entry animations!
-            */}
             <div key={activeCategory ? activeCategory : 'home'} className="animate-view">
                 
                 {/* --- VIEW 1: PREMIUM CATEGORY CARDS --- */}
@@ -51,7 +53,7 @@ export default function CakesClient({ categories, allCakes }) {
                                             src={cat.image} 
                                             alt={cat.title} 
                                             className="w-100 h-100 object-fit-cover cat-bg-img" 
-                                            onError={(e) => e.target.src = '/assets/about.png'} 
+                                            onError={(e) => e.target.src = '/assets/placeholder.png'} 
                                         />
                                     </div>
                                     
@@ -86,19 +88,22 @@ export default function CakesClient({ categories, allCakes }) {
                 {activeCategory && (
                     <div>
                         {/* Elegant Back Button & Category Title */}
-                        <div className="d-flex align-items-center mb-5 pb-3 border-bottom position-relative">
+                        <div className="d-flex flex-column flex-md-row align-items-start align-items-md-center mb-4 pb-3 border-bottom position-relative">
                             <button 
-                                className="btn btn-back me-4 shadow-sm" 
+                                className="btn btn-back shadow-sm mb-3 mb-md-0 me-md-4" 
                                 onClick={() => setActiveCategory(null)}
                             >
                                 <i className="fas fa-arrow-left me-2"></i> Back
                             </button>
                             <div>
-                                <h6 className="text-uppercase text-muted fw-bold mb-1" style={{letterSpacing: '2px', fontSize: '0.75rem'}}>Category</h6>
-                                <h2 className="text-red mb-0 fw-bold display-6" style={{fontFamily: 'var(--font-heading)'}}>
+                                <h6 className="text-uppercase text-muted fw-bold mb-1" style={{letterSpacing: '2px', fontSize: '0.75rem'}}>
+                                    Category
+                                </h6>
+                                <h2 className="text-red mb-0 fw-bold category-title" style={{fontFamily: 'var(--font-heading)'}}>
                                     {categories.find(c => c.id === activeCategory)?.title}
                                 </h2>
                             </div>
+                            
                         </div>
 
                         {/* Staggered Product Grid */}
@@ -238,6 +243,17 @@ export default function CakesClient({ categories, allCakes }) {
             background-color: #740311;
             color: white;
             border-color: #740311;
+        }
+        @media (max-width: 768px) {
+            /* Shrink title slightly to prevent awkward word wrapping */
+            .category-title {
+                font-size: 2.2rem; 
+            }
+            /* Make the back button a little more compact */
+            .btn-back {
+                padding: 8px 20px;
+                font-size: 0.9rem;
+            }
         }
 
         /* Colors */

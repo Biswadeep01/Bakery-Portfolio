@@ -28,7 +28,7 @@ export async function fetchCakeImages(staticCakes = []) {
             // 2. Explicitly handle Supabase API errors
             if (error) {
                 console.error(`[Supabase Error] Failed fetching folder '${folderPath}':`, error.message);
-                return { ...cake, images: ["/assets/about.png"] };
+                return { ...cake, images: ["/assets/placeholder.png"] };
             }
 
             let imageUrls = [];
@@ -51,10 +51,10 @@ export async function fetchCakeImages(staticCakes = []) {
                         return data.publicUrl;
                     });
                 } else {
-                    imageUrls = ["/assets/about.png"]; // Folder exists, but no valid images
+                    imageUrls = ["/assets/placeholder.png"]; // Folder exists, but no valid images
                 }
             } else {
-                imageUrls = ["/assets/about.png"]; // Folder is empty
+                imageUrls = ["/assets/placeholder.png"]; // Folder is empty
             }
 
             // 5. Return the merged object
@@ -68,7 +68,7 @@ export async function fetchCakeImages(staticCakes = []) {
             console.error(`[Unexpected Error] Processing images for cake ${cake.id}:`, err);
             return {
                 ...cake,
-                images: ["/assets/about.png"]
+                images: ["/assets/placeholder.png"]
             };
         }
     })

@@ -13,7 +13,10 @@ export const siteConfig = {
     
     // You can also add other global things here later!
     email: "enquiry@layerbites.com",
-    address: "Kalna Road, Badamtala, Curzon Gate"
+    address: "Kalna Road, Badamtala, Curzon Gate",
+    locality: "Burdwan",
+    state: "West Bengal",
+    pincode: "713101"
   },
   
   social: {

@@ -14,10 +14,10 @@ export default function JsonLd() {
     "priceRange": "₹₹",
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": siteConfig.contact.address, // Your specific street
-      "addressLocality": "Burdwan",
-      "addressRegion": "West Bengal",
-      "postalCode": "713101", // Standard Burdwan Pin Code
+      "streetAddress": siteConfig.contact.address,
+      "addressLocality": siteConfig.contact.locality, 
+      "addressRegion": siteConfig.contact.state, 
+      "postalCode": siteConfig.contact.pincode, 
       "addressCountry": "IN"
     },
     "geo": {
